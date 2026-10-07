@@ -17,8 +17,9 @@ class Alojamiento:
     # El precio debe verse como moneda y la capacidad como número de personas.
 
     def precio_por_persona(self):
-        # COMPLETAR
-        pass
+        if self.precio <= 0 or self.capacidad <= 0:
+            return None
+        return round(self.precio / self.capacidad, 2)
 
     # 2. precio_por_persona()
 
@@ -50,3 +51,9 @@ departamento = Alojamiento(
 # 2. Mostrar el precio por persona de la casa.
 # 3. Mostrar la información del departamento.
 # 4. Mostrar el precio por persona del departamento.
+
+print(casa.mostrar_info())
+print(f"Precio por persona: ${casa.precio_por_persona():.2f}")
+
+print(departamento.mostrar_info())
+print(f"Precio por persona: ${departamento.precio_por_persona():.2f}")
